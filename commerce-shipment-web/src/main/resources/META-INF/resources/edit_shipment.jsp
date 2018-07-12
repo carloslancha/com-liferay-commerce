@@ -37,21 +37,7 @@ portletDisplay.setURLBack(redirect);
 
 	<aui:fieldset-group markupView="lexicon">
 		<aui:fieldset>
-			<aui:select label="order" name="commerceOrderId" required="<%= true %>">
-
-				<%
-				List<CommerceOrder> commerceOrders = commerceShipmentDisplayContext.getCommerceOrders();
-
-				for (CommerceOrder commerceOrder : commerceOrders) {
-				%>
-
-					<aui:option label="<%= commerceOrder.getCommerceOrderId() %>" />
-
-				<%
-				}
-				%>
-
-			</aui:select>
+			<liferay-commerce:autocomplete dataSource="" id="commerceOrderId" />
 		</aui:fieldset>
 	</aui:fieldset-group>
 
