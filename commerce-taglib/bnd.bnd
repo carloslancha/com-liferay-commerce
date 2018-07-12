@@ -8,5 +8,11 @@ Provide-Capability:\
 	osgi.extender;\
 		osgi.extender="jsp.taglib";\
 		uri="http://liferay.com/tld/commerce";\
+		version:Version="${Bundle-Version}",\
+	soy;\
+		type="commerce-taglib";\
 		version:Version="${Bundle-Version}"
+Require-Capability:\
+	osgi.extender;\
+		filter:="(&(osgi.extender=liferay.js)(version>=2.0)(!(version>=3.0)))"
 Web-ContextPath: /commerce-taglib
