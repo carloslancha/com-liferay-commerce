@@ -14,9 +14,13 @@
 
 package com.liferay.commerce.taglib.servlet.taglib;
 
+import com.liferay.frontend.js.loader.modules.extender.npm.NPMResolver;
+import com.liferay.commerce.taglib.internal.js.loader.modules.extender.npm.NPMResolverProvider;
+
 import com.liferay.frontend.taglib.soy.servlet.taglib.ComponentRendererTag;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 
 /**
@@ -38,7 +42,15 @@ public class AutocompleteTag extends ComponentRendererTag {
 
 	@Override
 	public String getModule() {
-		return "commerce-taglib/autocomplete/CommerceAutocomplete.es";
+		NPMResolver npmResolver = NPMResolverProvider.getNPMResolver();
+
+		if (npmResolver == null) {
+			return StringPool.BLANK;
+		}
+
+		return npmResolver.resolveModuleName(
+			StringBundler.concat(
+				"commerce-taglib/autocomplete/CommerceAutocomplete.es"));
 	}
 
 	public void setDataSource(String dataSource) {

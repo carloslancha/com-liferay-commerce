@@ -2,8 +2,8 @@ import Component from 'metal-component';
 import Soy from 'metal-soy';
 import {Config} from 'metal-state';
 
-import CommerceDataProvider from './autocomplete/CommerceDataProvider.es';
-import templates from './autocomplete/CommerceAutocomplete.soy';
+import CommerceDataProvider from './CommerceDataProvider.es';
+import templates from './CommerceAutocomplete.soy';
 
 /* eslint-disable require-jsdoc */
 
